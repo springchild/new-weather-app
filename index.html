@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polina's Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/ee73285fd9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="form-wrapper">
+        <form>
+          <input id="input-bar" type="text" placeholder=" Enter a city..." />
+          <input id="search-button" type="submit" value="🔍" />
+          <input id="location-button" type="button" value=" 📍 " />
+        </form>
+      </div>
+      <h1 id="city">Boston</h1>
+      <div id="temp-now">
+        <span id="temp-digits">59&deg</span
+        ><span id="temp-units"
+          ><a id="temp-f" href="#">F</a>|<a id="temp-c" href="#">C</a></span
+        >
+      </div>
+
+      <img id="main-icon" src="img/ICONS/sunny.png" alt="sunny" />
+      <div id="weather-desc">Sunny</div>
+      <div id="weather-specs-wrapper">
+        <div id="feels-like" class="weather-specs">Feels like 55&deg</div>
+        <div id="humidity" class="weather-specs">Humidity: 70%</div>
+        <div id="wind" class="weather-specs">Wind: 5 mph</div>
+      </div>
+    </div>
+    <script scc="src/index.js"></script>
+  </body>
+</html>
