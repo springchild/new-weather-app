@@ -1,6 +1,5 @@
 body {
   font-family: "Roboto", sans-serif;
-  background: rgba(0, 0, 0, 1);
 }
 
 h1 {
@@ -15,14 +14,17 @@ h3 {
   margin: 0;
   text-align: center;
 }
+form {
+  display: inline;
+}
 footer {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 12px;
   margin: 4px;
   text-align: center;
 }
-.container {
-  background: rgb(248, 155, 50);
+.app-wrapper {
+  background: rgb(255, 255, 255);
   border: 3px solid rgb(0, 0, 0);
   border-radius: 30px;
   display: block;
@@ -34,20 +36,22 @@ footer {
   text-align: center;
 }
 
-#input-bar,
-#search-button,
-#location-button {
-  color: rgba(255, 255, 255, 1);
-  background: rgba(0, 0, 0, 1);
-  padding: 3px;
+#input-bar {
+  background: transparent;
+  padding: 5px;
   border: 3px solid rgb(0, 0, 0);
   border-radius: 30px;
 }
-#input-bar {
-  padding: 5px;
+#search-button,
+#location-button {
+  position: relative;
+  top: 12px;
+  padding: 0;
+  width: 32px;
 }
+
 ::placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 #temp-now {
   text-align: center;
@@ -89,7 +93,7 @@ footer {
 }
 .footer-link {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   font-weight: 500;
 }
 .footer-link:hover {

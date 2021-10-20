@@ -15,50 +15,65 @@
   </head>
   <body>
     <div class="container">
-      <div id="form-wrapper">
-        <form>
-          <input id="input-bar" type="text" placeholder=" Enter a city..." />
-          <input id="search-button" type="submit" value="🔍" />
-          <input id="location-button" type="button" value=" 📍 " />
-        </form>
-      </div>
-      <h1><span id="city">Boston</span>, <span id="country">US</span></h1>
-      <h3 id="day-time">
-        <span id="day">Wed</span> <span id="hours">12</span>:<span id="minutes"
-          >39</span
-        ><span id="am-pm">PM</span>
-      </h3>
-      <div id="temp-now">
-        <span id="temp-digits">59&deg</span
-        ><span id="temp-units"
-          ><a id="temp-f" href="#">F</a>|<a id="temp-c" href="#">C</a></span
-        >
-      </div>
+      <div class="app-wrapper">
+        <div id="form-wrapper">
+          <form>
+            <input id="input-bar" type="text" placeholder=" Enter a city..." />
+            <input
+              type="image"
+              id="search-button"
+              alt=" "
+              src="img/search.svg"
+            />
+          </form>
+          <input
+            type="image"
+            id="location-button"
+            alt=" "
+            src="img/location.svg"
+          />
+        </div>
+        <h1><span id="city">Boston</span>, <span id="country">US</span></h1>
+        <h3 id="day-time">
+          <span id="day">Wed</span> <span id="hours">12</span>:<span
+            id="minutes"
+            >39</span
+          ><span id="am-pm">PM</span>
+        </h3>
+        <div id="temp-now">
+          <span id="temp-digits">59&deg</span
+          ><span id="temp-units"
+            ><a id="temp-f" href="#">F</a>|<a id="temp-c" href="#">C</a></span
+          >
+        </div>
 
-      <img id="main-icon" src="img/ICONS/sunny.png" alt="sunny" />
-      <div id="weather-desc">Sunny</div>
-      <div id="weather-specs-wrapper">
-        <div id="feels-like" class="weather-specs">Feels like 55&deg</div>
-        <div id="humidity" class="weather-specs">Humidity: 70%</div>
-        <div id="wind" class="weather-specs">Wind: 5 mph</div>
+        <img id="main-icon" src="img/ICONS/sunny.png" alt="sunny" />
+        <div id="weather-desc">Sunny</div>
+        <div id="weather-specs-wrapper">
+          <div id="feels-like" class="weather-specs">Feels like 55&deg</div>
+          <div id="humidity" class="weather-specs">Humidity: 70%</div>
+          <div id="wind" class="weather-specs">Wind: 5 mph</div>
+        </div>
       </div>
+      <footer>
+        <a
+          class="footer-link"
+          href="https://github.com/springchild/new-weather-app"
+          >Open-source code</a
+        >
+        by
+        <a
+          class="footer-link"
+          href="https://www.linkedin.com/in/polina-dyrda-a5121621b/"
+          >Polina Dyrda</a
+        >. Hosted on
+        <a
+          class="footer-link"
+          href="https://admiring-newton-38b9e2.netlify.app/"
+          >Netlify.</a
+        >
+      </footer>
     </div>
-    <footer>
-      <a
-        class="footer-link"
-        href="https://github.com/springchild/new-weather-app"
-        >Open-source code</a
-      >
-      by
-      <a
-        class="footer-link"
-        href="https://www.linkedin.com/in/polina-dyrda-a5121621b/"
-        >Polina Dyrda</a
-      >. Hosted on
-      <a class="footer-link" href="https://admiring-newton-38b9e2.netlify.app/"
-        >Netlify.</a
-      >
-    </footer>
     <script scc="src/index.js"></script>
   </body>
 </html>
