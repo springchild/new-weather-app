@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -33,7 +34,7 @@
             src="img/location.svg"
           />
         </div>
-        <h1><span id="city">Boston</span>, <span id="country">US</span></h1>
+        <h1><span id="city"></span>, <span id="country"></span></h1>
         <h3 id="day-time">
           <span id="day">Wed</span> <span id="hours">12</span>:<span
             id="minutes"
@@ -41,18 +42,24 @@
           ><span id="am-pm">PM</span>
         </h3>
         <div id="temp-now">
-          <span id="temp-digits">59&deg</span
-          ><span id="temp-units"
-            ><a id="temp-f" href="#">F</a>|<a id="temp-c" href="#">C</a></span
+          <span id="temp-digits"></span><span id="degree-sign">&deg</span
+          ><span id="temp-units">
+            <a id="temp-f" href="#">F</a>|<a id="temp-c" href="#">C</a></span
           >
         </div>
 
         <img id="main-icon" src="img/ICONS/sunny.png" alt="sunny" />
-        <div id="weather-desc">Sunny</div>
+        <div id="weather-desc"></div>
         <div id="weather-specs-wrapper">
-          <div id="feels-like" class="weather-specs">Feels like 55&deg</div>
-          <div id="humidity" class="weather-specs">Humidity: 70%</div>
-          <div id="wind" class="weather-specs">Wind: 5 mph</div>
+          <div class="feels-like" class="weather-specs">
+            Feels like <span id="feels-like"></span>&deg
+          </div>
+          <div class="humidity" class="weather-specs">
+            Humidity: <span id="humidity"></span>%
+          </div>
+          <div class="wind" class="weather-specs">
+            Wind: <span id="wind"></span> mph
+          </div>
         </div>
       </div>
       <footer>
@@ -74,6 +81,6 @@
         >
       </footer>
     </div>
-    <script scc="src/index.js"></script>
+    <script src="src/index.js"></script>
   </body>
 </html>
