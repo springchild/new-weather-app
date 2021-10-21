@@ -4,6 +4,24 @@ let city = "Boston";
 let units = "imperial";
 let apiUrl = `${endpoint}q=${city}&units=${units}&appid=${apiKey}`;
 
+function formatDate(timestamp) {
+  //will calculate date based on miliseconds passed since 1970??
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let am_pm = "AM";
+  if (hours > 12) {
+    hours = hours - 12;
+    am_pm = "PM";
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()]; //picks an item in the array corresponding with number from API
+  return `${day} ${hours}:${minutes} ${am_pm}`;
+}
+
 function showData(response) {
   let temp = document.querySelector("#temp-digits");
   temp.innerHTML = Math.round(response.data.main.temp);
@@ -19,5 +37,7 @@ function showData(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
+  let dateTime = document.querySelector("#date-time");
+  dateTime.innerHTML = formatDate(response.data.dt * 1000); //convert dt from seconds to miliseconds
 }
 axios.get(apiUrl).then(showData);
