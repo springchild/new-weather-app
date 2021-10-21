@@ -39,5 +39,11 @@ function showData(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   let dateTime = document.querySelector("#date-time");
   dateTime.innerHTML = formatDate(response.data.dt * 1000); //convert dt from seconds to miliseconds
+  let iconCode = response.data.weather[0].icon;
+  let mainIcon = document.querySelector("#main-icon");
+  mainIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  ); // change original icon src to one provided by API
 }
 axios.get(apiUrl).then(showData);
