@@ -1,9 +1,3 @@
-let apiKey = "9b6ca84186ab2a21277c82510180b38a";
-let endpoint = "https://api.openweathermap.org/data/2.5/weather?";
-let city = "Magnitogorsk";
-let units = "imperial";
-let apiUrl = `${endpoint}q=${city}&units=${units}&appid=${apiKey}`;
-
 function formatDate(timestamp) {
   //will calculate date based on miliseconds passed since 1970??
   let date = new Date(timestamp);
@@ -45,5 +39,27 @@ function showData(response) {
     "src",
     `http://openweathermap.org/img/wn/${iconCode}@2x.png`
   ); // change original icon src to one provided by API
+  mainIcon.setAttribute("alt", response.data.weather[0].main);
 }
-axios.get(apiUrl).then(showData);
+
+function searchCity(city) {
+  let apiKey = "9b6ca84186ab2a21277c82510180b38a";
+  let endpoint = "https://api.openweathermap.org/data/2.5/weather?";
+  let units = "imperial";
+  let apiUrl = `${endpoint}q=${city}&units=${units}&appid=${apiKey}`;
+  if (city) {
+    axios.get(apiUrl).then(showData);
+  } else {
+    alert("Please enter a city");
+  }
+}
+
+function handleSearch(event) {
+  event.preventDefault();
+  let userInput = document.querySelector("#input-bar").value;
+  searchCity(userInput);
+}
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSearch);
+
+searchCity("Boston");
