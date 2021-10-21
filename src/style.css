@@ -95,6 +95,9 @@ footer {
   font-size: 35px;
   text-align: center;
 }
+#weather-desc:first-letter {
+  text-transform: uppercase;
+}
 #weather-specs-wrapper {
   margin: 10px auto;
   text-align: center;

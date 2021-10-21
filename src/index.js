@@ -25,7 +25,7 @@ function showData(response) {
   country = document.querySelector("#country");
   country.innerHTML = response.data.sys.country;
   let description = document.querySelector("#weather-desc");
-  description.innerHTML = response.data.weather[0].main;
+  description.innerHTML = response.data.weather[0].description;
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = Math.round(response.data.main.feels_like);
   let humidity = document.querySelector("#humidity");
