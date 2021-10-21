@@ -38,7 +38,7 @@ function showData(response) {
   let mainIcon = document.querySelector("#main-icon");
   mainIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+    `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   ); // change original icon src to one provided by API
   mainIcon.setAttribute("alt", response.data.weather[0].main);
   fahrenheitLink.classList.add("active");
