@@ -87,6 +87,8 @@ function convertToC(event) {
   let tempDigits = document.querySelector("#temp-digits");
   celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
   tempDigits.innerHTML = Math.round(celsiusTemp);
+  fahrenheitLink.classList.remove("active"); //<-- remove .active from temp-f link once clicked on temp-c
+  celsiusLink.classList.add("active"); //<-- add .active to temp-c link once clicked on temp-c
 }
 let celsiusLink = document.querySelector("#temp-c");
 celsiusLink.addEventListener("click", convertToC);
@@ -96,6 +98,8 @@ function convertToF(event) {
   event.preventDefault();
   let tempDigits = document.querySelector("#temp-digits");
   tempDigits.innerHTML = Math.round(fahrenheitTemp);
+  fahrenheitLink.classList.add("active"); //<-- add .active to temp-f when clicked on temp-f
+  celsiusLink.classList.remove("active"); //<-- remove .active from temp-c when clicked on temp-f
 }
 let fahrenheitLink = document.querySelector("#temp-f");
 fahrenheitLink.addEventListener("click", convertToF);

@@ -76,8 +76,13 @@ footer {
 }
 #temp-f:hover,
 #temp-c:hover {
-  text-decoration: underline;
+  font-weight: 600;
 }
+/*styling active link*/
+#temp-now .active {
+  font-weight: 600;
+}
+
 #main-icon {
   display: block;
   margin: 0 auto;
