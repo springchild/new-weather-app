@@ -62,4 +62,18 @@ function handleSearch(event) {
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSearch);
 
+function fetchLocation(position) {
+  let apiKey = "9b6ca84186ab2a21277c82510180b38a";
+  let endpoint = "https://api.openweathermap.org/data/2.5/weather?";
+  let units = "imperial";
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiUrl = `${endpoint}lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showData);
+}
+let locationButton = document.querySelector("#location-button");
+locationButton.addEventListener("click", function () {
+  navigator.geolocation.getCurrentPosition(fetchLocation);
+});
+
 searchCity("Boston");
