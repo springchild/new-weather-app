@@ -18,6 +18,7 @@ function formatDate(timestamp) {
 
 function showData(response) {
   let temp = document.querySelector("#temp-digits");
+  fahrenheitTemp = response.data.main.temp; // <-- Global var. Storing API temp response inside
   temp.innerHTML = Math.round(response.data.main.temp);
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
@@ -53,7 +54,7 @@ function searchCity(city) {
     alert("Please enter a city");
   }
 }
-
+//programming search engine
 function handleSearch(event) {
   event.preventDefault();
   let userInput = document.querySelector("#input-bar").value;
@@ -62,6 +63,7 @@ function handleSearch(event) {
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSearch);
 
+//programming current location button
 function fetchLocation(position) {
   let apiKey = "9b6ca84186ab2a21277c82510180b38a";
   let endpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -75,5 +77,27 @@ let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", function () {
   navigator.geolocation.getCurrentPosition(fetchLocation);
 });
+
+//temperature conversion
+//create global variable for F temp so it's accessible from any function:
+let fahrenheitTemp = null; //<-- will be used to convert to and from Celsius
+//conveting to Celsius
+function convertToC(event) {
+  event.preventDefault();
+  let tempDigits = document.querySelector("#temp-digits");
+  celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  tempDigits.innerHTML = Math.round(celsiusTemp);
+}
+let celsiusLink = document.querySelector("#temp-c");
+celsiusLink.addEventListener("click", convertToC);
+
+//converting back to Fahrenheit
+function convertToF(event) {
+  event.preventDefault();
+  let tempDigits = document.querySelector("#temp-digits");
+  tempDigits.innerHTML = Math.round(fahrenheitTemp);
+}
+let fahrenheitLink = document.querySelector("#temp-f");
+fahrenheitLink.addEventListener("click", convertToF);
 
 searchCity("Boston");
