@@ -41,6 +41,8 @@ function showData(response) {
     `http://openweathermap.org/img/wn/${iconCode}@2x.png`
   ); // change original icon src to one provided by API
   mainIcon.setAttribute("alt", response.data.weather[0].main);
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active"); //<-- to display F as active on load for a new city search, in case C was previously clicked.
 }
 
 function searchCity(city) {

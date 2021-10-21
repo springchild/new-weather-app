@@ -56,6 +56,7 @@ footer {
 }
 #temp-now {
   text-align: center;
+  line-height: 50px;
 }
 #temp-digits,
 #degree-sign {
@@ -81,12 +82,13 @@ footer {
 /*styling active link*/
 #temp-now .active {
   font-weight: 600;
+  cursor: default;
 }
 
 #main-icon {
   display: block;
-  margin: 0 auto;
-  width: 30%;
+  margin: -40px auto -20px;
+  width: 45%;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
 }
 #weather-desc {
