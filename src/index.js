@@ -1,6 +1,6 @@
 let apiKey = "9b6ca84186ab2a21277c82510180b38a";
 let endpoint = "https://api.openweathermap.org/data/2.5/weather?";
-let city = "Boston";
+let city = "Magnitogorsk";
 let units = "imperial";
 let apiUrl = `${endpoint}q=${city}&units=${units}&appid=${apiKey}`;
 
