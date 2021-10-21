@@ -1,22 +1,26 @@
 body {
   font-family: "Roboto", sans-serif;
+  background: rgba(216, 216, 214, 0.7);
 }
 
 h1 {
-  font-size: 30px;
-  font-weight: 400;
-  margin: 10px auto;
-  text-align: center;
-}
-h3 {
-  font-size: 15px;
+  font-size: 28px;
   font-weight: 300;
   margin: 10px auto;
   text-align: center;
 }
+h3 {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 5px auto;
+  text-align: center;
+}
 form {
   display: inline;
+  margin-left: 10px;
+  margin-right: -35px;
 }
+
 footer {
   color: rgba(0, 0, 0, 0.7);
   font-size: 12px;
@@ -26,34 +30,43 @@ footer {
 .app-wrapper {
   background: rgb(255, 255, 255);
   border: 3px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 5px rgb(150, 150, 148);
   border-radius: 30px;
   display: block;
   margin: 0 auto;
   max-width: 300px;
 }
 #form-wrapper {
-  margin-top: 10px;
-  text-align: center;
+  margin: 5px;
 }
 
 #input-bar {
-  background: rgb(242, 242, 241);
-  padding: 5px;
-  margin-right: 5px;
+  background: rgba(216, 216, 214, 0.7);
+  padding: 6px;
   border: 3px solid rgb(0, 0, 0);
   border-radius: 30px;
 }
-#search-button,
-#location-button {
-  position: relative;
-  top: 12px;
-  padding: 0;
-  width: 32px;
-}
-
 ::placeholder {
   color: rgba(0, 0, 0, 0.8);
 }
+#search-button {
+  position: relative;
+  left: -40px;
+  top: 9px;
+  width: 30px;
+  padding: 0;
+}
+#location-button {
+  padding: 0;
+  width: 36px;
+  position: relative;
+  top: 12px;
+}
+#search-button:hover,
+#location-button:hover {
+  filter: drop-shadow(0 0 5px rgb(236, 110, 76));
+}
+
 #temp-now {
   text-align: center;
   line-height: 50px;
@@ -78,6 +91,7 @@ footer {
 #temp-f:hover,
 #temp-c:hover {
   font-weight: 600;
+  text-shadow: 1px 0 10px rgb(236, 110, 76);
 }
 /*styling active link*/
 #temp-now .active {
@@ -87,20 +101,23 @@ footer {
 
 #main-icon {
   display: block;
-  margin: -40px auto -20px;
+  margin: -40px auto -35px;
   width: 45%;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
 }
 #weather-desc {
-  font-size: 35px;
+  font-size: 28px;
+  font-weight: 500;
   text-align: center;
 }
 #weather-desc:first-letter {
   text-transform: uppercase;
 }
 #weather-specs-wrapper {
-  margin: 10px auto;
+  font-weight: 400;
+  margin: 0 auto;
   text-align: center;
+  line-height: 20px;
 }
 .weather-specs {
   font-size: 15px;
@@ -113,4 +130,33 @@ footer {
 }
 .footer-link:hover {
   text-decoration: underline;
+}
+.forecast-wrapper {
+  margin-bottom: 20px;
+}
+.forecast-element {
+  border: 3px solid rgba(0, 0, 0, 1);
+  border-radius: 30px;
+  height: 40px;
+  margin: 5px auto;
+  max-width: 90%;
+  padding: 4px;
+}
+.mini-icon {
+  max-width: 60px;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
+  position: relative;
+  bottom: 6px;
+}
+.week-day {
+  font-weight: 500;
+  padding-left: 16px;
+  padding-right: 0;
+}
+.week-temp {
+  padding-left: 0;
+  font-weight: 900;
+  position: relative;
+  left: -8px;
+  text-align: center;
 }
