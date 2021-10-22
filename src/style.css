@@ -11,7 +11,7 @@ h1 {
 }
 h3 {
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 400;
   margin: 5px auto;
   text-align: center;
 }
@@ -86,6 +86,7 @@ footer {
 #temp-f,
 #temp-c {
   color: rgb(0, 0, 0);
+  font-weight: 300;
   text-decoration: none;
 }
 #temp-f:hover,
@@ -97,13 +98,14 @@ footer {
 #temp-now .active {
   font-weight: 600;
   cursor: default;
+  text-shadow: 1px 0 10px rgb(255, 255, 255);
 }
 
 #main-icon {
   display: block;
   margin: -40px auto -35px;
   width: 45%;
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
 }
 #weather-desc {
   font-size: 28px;
