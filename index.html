@@ -60,15 +60,24 @@
 
         <img id="main-icon" src="#" alt="placeholder" />
         <div id="weather-desc"></div>
-        <div id="weather-specs-wrapper">
-          <div class="feels-like" class="weather-specs">
-            Feels like <span id="feels-like"></span>&deg
+        <div id="weather-specs-wrapper" class="row">
+          <div class="col col-left">
+            <div class="feels-like weather-specs">
+              Feels like <span id="feels-like"></span>&deg
+            </div>
+            <div class="weather-specs">
+              H:<span id="temp-hi">70</span>&deg L:<span id="temp-lo">50</span
+              >&deg
+            </div>
           </div>
-          <div class="humidity" class="weather-specs">
-            Humidity: <span id="humidity"></span>%
-          </div>
-          <div class="wind" class="weather-specs">
-            Wind: <span id="wind"></span> mph
+
+          <div class="col col-right">
+            <div class="humidity weather-specs">
+              Humidity: <span id="humidity"></span>%
+            </div>
+            <div class="wind weather-specs">
+              Wind: <span id="wind"></span> mph
+            </div>
           </div>
         </div>
         <div class="forecast-wrapper" id="forecast"></div>
