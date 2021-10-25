@@ -117,7 +117,7 @@ footer {
 }
 #weather-specs-wrapper {
   font-weight: 400;
-  margin: 0 20px;
+  margin: 3px 20px;
   line-height: 20px;
 }
 .weather-specs {
@@ -133,7 +133,7 @@ footer {
   text-decoration: underline;
 }
 .forecast-wrapper {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .forecast-element {
   border: 3px solid rgba(0, 0, 0, 1);
@@ -157,7 +157,7 @@ footer {
 .week-temp {
   padding-left: 0;
   position: relative;
-  left: -8px;
+  left: -14px;
   text-align: center;
 }
 .temp-hi {

@@ -141,6 +141,7 @@ function displayForecast(response) {
   let forecastArray = response.data.daily;
   //to loop through each day in the array:
   forecastArray.forEach(function (forecastDay, index) {
+    //to limit how many days to display in forecast:
     if (index > 0 && index < 7) {
       forecastHTML =
         forecastHTML +
@@ -151,17 +152,17 @@ function displayForecast(response) {
             <span class="week-temp col">
               <span class="temp-hi">${Math.round(
                 forecastDay.temp.max
-              )}</span>&deg 
+              )}&degF</span> 
               <span class="temp-lo">${Math.round(
                 forecastDay.temp.min
-              )}</span>&deg
+              )}&degF</span>
             </span>
             <img
               class="mini-icon col"
               src="https://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png"
-              alt="rain"
+              title="${forecastDay.weather[0].main}"
             />
           </div>`;
     }
