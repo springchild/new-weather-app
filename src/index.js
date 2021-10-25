@@ -36,6 +36,10 @@ function showData(response) {
   description.innerHTML = response.data.weather[0].description;
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = Math.round(response.data.main.feels_like);
+  let tempHi = document.querySelector("#temp-hi");
+  tempHi.innerHTML = Math.round(response.data.main.temp_max);
+  let tempLo = document.querySelector("#temp-lo");
+  tempLo.innerHTML = Math.round(response.data.main.temp_min);
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
