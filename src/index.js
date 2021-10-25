@@ -23,31 +23,37 @@ function formatDate(timestamp) {
   let day = days[date.getDay()]; //picks an item in the array corresponding with number from API
   return `${day} ${hours}:${minutes} ${am_pm}`;
 }
+//to get lat and long for 7 day forecast:
+function getForecast(coords) {
+  let apiKey = "9b6ca84186ab2a21277c82510180b38a";
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=current,minutely,hourly,alerts&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showData(response) {
   let temp = document.querySelector("#temp-digits");
+  let city = document.querySelector("#city");
+  let description = document.querySelector("#weather-desc");
+  let feelsLike = document.querySelector("#feels-like");
+  let tempHi = document.querySelector("#temp-hi");
+  let tempLo = document.querySelector("#temp-lo");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let dateTime = document.querySelector("#date-time");
+  let mainIcon = document.querySelector("#main-icon");
+  let iconCode = response.data.weather[0].icon;
   fahrenheitTemp = response.data.main.temp; // <-- Global var. Storing API temp response inside
   temp.innerHTML = Math.round(response.data.main.temp);
-  let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
   country = document.querySelector("#country");
   country.innerHTML = response.data.sys.country;
-  let description = document.querySelector("#weather-desc");
   description.innerHTML = response.data.weather[0].description;
-  let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = Math.round(response.data.main.feels_like);
-  let tempHi = document.querySelector("#temp-hi");
   tempHi.innerHTML = Math.round(response.data.main.temp_max);
-  let tempLo = document.querySelector("#temp-lo");
   tempLo.innerHTML = Math.round(response.data.main.temp_min);
-  let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
-  let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
-  let dateTime = document.querySelector("#date-time");
   dateTime.innerHTML = formatDate(response.data.dt * 1000); //convert dt from seconds to miliseconds
-  let iconCode = response.data.weather[0].icon;
-  let mainIcon = document.querySelector("#main-icon");
   mainIcon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${iconCode}@2x.png`
@@ -55,6 +61,7 @@ function showData(response) {
   mainIcon.setAttribute("alt", response.data.weather[0].main);
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active"); //<-- to display F as active on load for a new city search, in case C was previously clicked.
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -119,25 +126,31 @@ let fahrenheitLink = document.querySelector("#temp-f");
 fahrenheitLink.addEventListener("click", convertToF);
 
 //displaying forecast:
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   //inject a forecast html block with structure:
   let forecastHTML = ""; //variable to store HTML to use in a loop. To be with real data.
-  //create an array for the loop to circle through:
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  //create var to house a response array:
+  let forecastArray = response.data.daily;
   //to loop through each day in the array:
-  days.forEach(function (day) {
+  forecastArray.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="forecast-element row">
-            <span class="week-day col">${day}</span>
+            <span class="week-day col">${forecastDay.dt}</span>
             <span class="week-temp col">
-              <span class="temp-hi">57&deg</span>
-              <span class="temp-lo">50&deg</span>
+              <span class="temp-hi">${Math.round(
+                forecastDay.temp.max
+              )}</span>&deg 
+              <span class="temp-lo">${Math.round(
+                forecastDay.temp.min
+              )}</span>&deg
             </span>
             <img
               class="mini-icon col"
-              src="https://openweathermap.org/img/wn/10d@2x.png"
+              src="https://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
               alt="rain"
             />
           </div>`;
@@ -146,4 +159,3 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 searchCity("Boston");
-displayForecast();
