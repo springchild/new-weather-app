@@ -114,4 +114,32 @@ function convertToF(event) {
 let fahrenheitLink = document.querySelector("#temp-f");
 fahrenheitLink.addEventListener("click", convertToF);
 
+//displaying forecast:
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  //inject a forecast html block with structure:
+  let forecastHTML = ""; //variable to store HTML to use in a loop. To be with real data.
+  //create an array for the loop to circle through:
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  //to loop through each day in the array:
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="forecast-element row">
+            <span class="week-day col">${day}</span>
+            <span class="week-temp col">
+              <span class="temp-hi">57&deg</span>
+              <span class="temp-lo">50&deg</span>
+            </span>
+            <img
+              class="mini-icon col"
+              src="https://openweathermap.org/img/wn/10d@2x.png"
+              alt="rain"
+            />
+          </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
 searchCity("Boston");
+displayForecast();
