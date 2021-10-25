@@ -117,8 +117,7 @@ footer {
 }
 #weather-specs-wrapper {
   font-weight: 400;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0 20px;
   line-height: 20px;
 }
 .weather-specs {

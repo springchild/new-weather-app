@@ -26,10 +26,17 @@ function formatDate(timestamp) {
 //to get lat and long for 7 day forecast:
 function getForecast(coords) {
   let apiKey = "9b6ca84186ab2a21277c82510180b38a";
-  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=current,minutely,hourly,alerts&units=imperial&appid=${apiKey}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
+//transform timestamps into days of week:
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
 
+  return day;
+}
 function showData(response) {
   let temp = document.querySelector("#temp-digits");
   let city = document.querySelector("#city");
@@ -137,7 +144,9 @@ function displayForecast(response) {
     forecastHTML =
       forecastHTML +
       `<div class="forecast-element row">
-            <span class="week-day col">${forecastDay.dt}</span>
+            <span class="week-day col">${formatForecastDate(
+              forecastDay.dt
+            )}</span>
             <span class="week-temp col">
               <span class="temp-hi">${Math.round(
                 forecastDay.temp.max
