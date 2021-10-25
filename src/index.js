@@ -140,10 +140,11 @@ function displayForecast(response) {
   //create var to house a response array:
   let forecastArray = response.data.daily;
   //to loop through each day in the array:
-  forecastArray.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="forecast-element row">
+  forecastArray.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="forecast-element row">
             <span class="week-day col">${formatForecastDate(
               forecastDay.dt
             )}</span>
@@ -163,6 +164,7 @@ function displayForecast(response) {
               alt="rain"
             />
           </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
