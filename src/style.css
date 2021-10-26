@@ -61,6 +61,7 @@ footer {
   width: 36px;
   position: relative;
   top: 12px;
+  left: -3px;
 }
 #search-button:hover,
 #location-button:hover {
